@@ -1,2 +1,4 @@
 include README.md
 include LICENCE
+recursive-include tests *.dbf
+recursive-include tests *.py

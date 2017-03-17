@@ -7,5 +7,6 @@ setup(name="Spaceland",
       author="Matt Riggott",
       author_email="matt@ja.is",
       url="https://github.com/JaGallup/spaceland",
+      license="MIT",
       packages=["spaceland"],
-      license="MIT")
+      extras_require={"test": ["pytest", "pytest-pep8", "pytest-cov"]})

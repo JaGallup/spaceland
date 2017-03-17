@@ -19,7 +19,7 @@ def get_parse_str(encoding: str) -> Callable[[bytes], str]:
     passed to this function.
 
     >>> utf8 = get_parse_str("UTF-8")
-    >>> utf8(b"\xf0\x9f\x91\x8d")
+    >>> utf8(b'\\xf0\\x9f\\x91\\x8d')
     '👍'
 
     Args:
@@ -133,9 +133,6 @@ class DbaseFile:
     Class objects allow for iteration and slicing, and they also work
     as context managers.
 
-    >>> with DbaseFile(open("example.dbf", "rb")) as dbase_file:
-    ...     for rec in dbase_file:
-    ...         print(rec)
     """
 
     def __init__(self, dbf: IO[bytes], encoding: str = "ascii") -> None:
