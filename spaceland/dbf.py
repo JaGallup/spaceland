@@ -12,14 +12,14 @@ from typing import Optional, IO, Callable, Iterable
 
 
 def get_parse_str(encoding: str) -> Callable[[bytes], str]:
-    """
-    Returns a function that decodes bytes to strings.
+    r"""
+    Return a function that decodes bytes to strings.
 
     The returned function decodes the bytes using the character encoding
     passed to this function.
 
     >>> utf8 = get_parse_str("UTF-8")
-    >>> utf8(b'\\xf0\\x9f\\x91\\x8d')
+    >>> utf8(b'\xf0\x9f\x91\x8d')
     '👍'
 
     Args:
@@ -32,7 +32,7 @@ def get_parse_str(encoding: str) -> Callable[[bytes], str]:
     """
     def parse_str(value: bytes) -> str:
         """
-        Converts bytes to a string using a preset character encoding.
+        Convert bytes to a string using a preset character encoding.
 
         Args:
             value: A bytes value to be converted to a string.
@@ -50,7 +50,7 @@ def get_parse_str(encoding: str) -> Callable[[bytes], str]:
 
 def parse_float(value: bytes) -> Optional[float]:
     """
-    Converts bytes to a float.
+    Convert bytes to a float.
 
     Args:
         value: A bytes value to be converted to a float.
@@ -67,7 +67,7 @@ def parse_float(value: bytes) -> Optional[float]:
 
 def parse_int(value: bytes) -> Optional[int]:
     """
-    Converts bytes to an integer.
+    Convert bytes to an integer.
 
     Args:
         value: A bytes value to be converted to an integer.
@@ -84,7 +84,7 @@ def parse_int(value: bytes) -> Optional[int]:
 
 def parse_date(value: bytes) -> Optional[date]:
     """
-    Converts bytes in the format ``YYYYMMDD`` to a datetime.date object.
+    Convert bytes in the format ``YYYYMMDD`` to a datetime.date object.
 
     Args:
         value: A bytes value to be converted to a date.
@@ -101,7 +101,7 @@ def parse_date(value: bytes) -> Optional[date]:
 
 def parse_bool(value: bytes) -> Optional[bool]:
     """
-    Converts bytes to a boolean value.
+    Convert bytes to a boolean value.
 
     Args:
         value: A bytes value to be converted to a boolean value.
@@ -120,9 +120,8 @@ def parse_bool(value: bytes) -> Optional[bool]:
 
 
 class DbaseFile:
-
     """
-    Reads fields and records from a dBase III binary file.
+    Read fields and records from a dBase III binary file.
 
     A dBase III file is a simple tabular data format consisting of a
     header, fields (columns), and records (rows). Fields are typed; as
@@ -137,6 +136,8 @@ class DbaseFile:
 
     def __init__(self, dbf: IO[bytes], encoding: str = "ascii") -> None:
         """
+        Read fields and records from a dBase III binary file.
+
         Args:
             dbf: A binary file open for reading.
             encoding: A name of a character encoding.
@@ -220,7 +221,7 @@ class DbaseFile:
 
     def records(self, start: int = 0) -> Iterable[tuple]:
         """
-        Yields the records in the file.
+        Yield the records in the file.
 
         A record is a set of fields and their values. The field names,
         types, and order are consistent across all records in the file.
@@ -250,7 +251,7 @@ class DbaseFile:
 
     def record(self, index: int) -> tuple:
         """
-        Returns the record at the given index.
+        Return the record at the given index.
 
         Args:
             index: The position of the record relative to the beginning
