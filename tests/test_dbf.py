@@ -8,7 +8,7 @@ from spaceland.dbf import DbaseFile
 
 @pytest.fixture
 def dbase_file_handle():
-    """Fixture to provide a file handle to a DBase file."""
+    """Fixture to provide a file handle to a dBase file."""
     with open("tests/data/eu1995.dbf", "rb") as fh:
         yield fh
 
@@ -20,7 +20,7 @@ def dbase_file(dbase_file_handle):
 
 
 def test_metadata(dbase_file):
-    """Test the metadata in the DBase file header is parsed correctly."""
+    """Test the metadata in the dBase file header is parsed correctly."""
     assert dbase_file.encoding == "ascii"
     assert dbase_file.num_records == 16
     assert dbase_file.header_length == 193
@@ -38,7 +38,7 @@ def test_metadata(dbase_file):
 
 
 def test_record(dbase_file):
-    """Test that a record in a DBase file is parsed correctly."""
+    """Test that a record in a dBase file is parsed correctly."""
     sweden = dbase_file.record(13)
     assert sweden.country == "Sweden"
     assert sweden.since == datetime.date(1995, 1, 1)
@@ -80,7 +80,7 @@ def test_context_management(dbase_file_handle):
 
 
 def test_random_access(dbase_file):
-    """Test records in a DBase file can be accessed randomly."""
+    """Test records in a dBase file can be accessed randomly."""
     assert dbase_file.record(2).country == "Denmark"
     assert dbase_file.record(-4).country == "Spain"
 
