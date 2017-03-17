@@ -22,7 +22,7 @@ def dbase_file(dbase_file_handle):
 def test_metadata(dbase_file):
     """Test the metadata in the DBase file header is parsed correctly."""
     assert dbase_file.encoding == "ascii"
-    assert dbase_file.num_records == 15
+    assert dbase_file.num_records == 16
     assert dbase_file.header_length == 193
     assert dbase_file.record_length == 36
 
@@ -55,13 +55,13 @@ def test_record(dbase_file):
 def test_getitem(dbase_file):
     """Test records can be accessed as keys."""
     assert dbase_file[2].country == "Denmark"
-    assert dbase_file[-3].country == "Spain"
-    assert dbase_file[-1] == dbase_file[14]
-    assert dbase_file[0] == dbase_file[-15]
+    assert dbase_file[-4].country == "Spain"
+    assert dbase_file[-1] == dbase_file[15]
+    assert dbase_file[0] == dbase_file[-16]
     with pytest.raises(IndexError):
-        dbase_file[15]
+        dbase_file[16]
     with pytest.raises(IndexError):
-        dbase_file[-16]
+        dbase_file[-17]
     with pytest.raises(TypeError):
         dbase_file["0"]
 
@@ -82,4 +82,14 @@ def test_context_management(dbase_file_handle):
 def test_random_access(dbase_file):
     """Test records in a DBase file can be accessed randomly."""
     assert dbase_file.record(2).country == "Denmark"
-    assert dbase_file.record(-3).country == "Spain"
+    assert dbase_file.record(-4).country == "Spain"
+
+
+def test_invalid_data(dbase_file):
+    """Test that invalid values in a record are returned as None."""
+    invalid_record = dbase_file[15]
+    assert invalid_record.country is None
+    assert invalid_record.since is None
+    assert invalid_record.area is None
+    assert invalid_record.pop_density is None
+    assert invalid_record.founder is None
