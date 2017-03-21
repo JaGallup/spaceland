@@ -9,4 +9,7 @@ setup(name="Spaceland",
       url="https://github.com/JaGallup/spaceland",
       license="MIT",
       packages=["spaceland"],
-      extras_require={"test": ["tox", "pytest", "pytest-pep8", "pytest-cov"]})
+      install_requires=["typing;python_version<'3.5'"],
+      extras_require={
+          "test": ["tox", "pytest>=3.0.0", "pytest-pep8", "pytest-cov"]
+      })
