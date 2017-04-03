@@ -7,6 +7,7 @@ at http://www.clicketyclick.dk/databases/xbase/format/dbf.html.
 """
 from collections import namedtuple
 from datetime import date
+from functools import lru_cache
 from struct import Struct
 from typing import Optional, IO, Callable, Iterable
 
@@ -30,6 +31,7 @@ def get_parse_str(encoding: str) -> Callable[[bytes], str]:
         A function that uses the given character encoding to convert
         bytes to strings.
     """
+    @lru_cache(maxsize=1024)
     def parse_str(value: bytes) -> str:
         """
         Convert bytes to a string using a preset character encoding.
@@ -82,6 +84,7 @@ def parse_int(value: bytes) -> Optional[int]:
         return None
 
 
+@lru_cache(maxsize=1024)
 def parse_date(value: bytes) -> Optional[date]:
     """
     Convert bytes in the format ``YYYYMMDD`` to a datetime.date object.
@@ -99,6 +102,7 @@ def parse_date(value: bytes) -> Optional[date]:
         return None
 
 
+@lru_cache(maxsize=16)
 def parse_bool(value: bytes) -> Optional[bool]:
     """
     Convert bytes to a boolean value.
