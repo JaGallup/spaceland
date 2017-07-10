@@ -9,6 +9,7 @@ setup(name="Spaceland",
       url="https://github.com/JaGallup/spaceland",
       license="MIT",
       packages=["spaceland"],
+      python_requires='>=3.3',
       install_requires=["typing;python_version<'3.5'",
                         "pathlib2;python_version<'3.4'"],
       extras_require={
