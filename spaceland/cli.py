@@ -13,18 +13,9 @@ When the package is installed via setuptools (e.g. using
 from argparse import ArgumentParser, ArgumentTypeError
 import codecs
 import csv
-import pathlib
 import sys
 
 from spaceland.dbf import DbaseFile
-
-
-def extant_file(arg: str) -> pathlib.Path:
-    """Type-check an argument to ensure it names an existing file."""
-    filename = pathlib.Path(arg)
-    if filename.exists() and filename.is_file():
-        return filename
-    raise ArgumentTypeError('file {!r} does not exist'.format(arg))
 
 
 def valid_codec(arg: str) -> str:
@@ -65,7 +56,7 @@ def dbf_to_csv() -> None:
 
     parser = ArgumentParser(description='Convert a dBase III file to CSV.',
                             allow_abbrev=False)
-    parser.add_argument('filename', type=extant_file)
+    parser.add_argument('filename', type=argparse.FileType)
     parser.add_argument('--encoding', '-e', type=valid_codec,
                         help='set encoding used to decode the DBF input')
     parser.add_argument('--delimiter', '-d', default=',', type=single_char,
