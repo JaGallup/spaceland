@@ -63,8 +63,7 @@ def dbf_to_csv() -> None:
         # Do nothing on platforms without signals or ``SIGPIPE``.
         pass
 
-    parser = ArgumentParser(description='Convert a dBase III file to CSV.',
-                            allow_abbrev=False)
+    parser = ArgumentParser(description='Convert a dBase III file to CSV.')
     parser.add_argument('filename', type=extant_file)
     parser.add_argument('--encoding', '-e', type=valid_codec,
                         help='set encoding used to decode the DBF input')
