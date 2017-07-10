@@ -13,7 +13,8 @@ setup(name="Spaceland",
       install_requires=["typing;python_version<'3.5'",
                         "pathlib;python_version<'3.4'"],
       extras_require={
-          "test": ["tox", "pytest>=3.0.0", "pytest-pep8", "pytest-cov"]
+          "test": ["tox", "pytest>=3.0.0", "pytest-pep8", "pytest-cov",
+                   "pytest-console-scripts"]
       },
       entry_points={
           "console_scripts": ["dbfr=spaceland.cli:dbf_to_csv"],
