@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(name="Spaceland",
@@ -8,7 +8,8 @@ setup(name="Spaceland",
       author_email="matt@ja.is",
       url="https://github.com/JaGallup/spaceland",
       license="MIT",
-      packages=["spaceland"],
+      packages=find_packages("src"),
+      package_dir={"": "src"},
       python_requires='>=3.3',
       install_requires=["typing;python_version<'3.5'",
                         "pathlib;python_version<'3.4'"],
