@@ -1,10 +1,11 @@
 language: python
+dist: trusty
 python:
   - "3.3"
   - "3.4"
   - "3.5"
   - "3.6"
-  - "pypy3.3-5.5-alpha"
+  - "pypy3.5-5.7.1-beta"
 install:
   - pip install --upgrade pip "setuptools>=24.2.0"
   - pip install "py>=1.4.29"

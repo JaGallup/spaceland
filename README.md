@@ -3,11 +3,11 @@ The `spaceland` library is a modern Python library for fast, Pythonic access to 
 [![Build status][tci]][tcl]
 [![Code coverage report][cci]][ccl]
 
-The package supports Python 3.3+ and will run quite happily under PyPy3. While it's not yet on PyPI you can install it directly from GitHub:
+The package supports Python 3.3+ and will run quite happily under PyPy3 (v5.7+). While it's not yet on PyPI you can install it directly from GitHub:
 
     pip install -e git+https://github.com/JaGallup/spaceland.git#egg=spaceland
 
- On Python 3.5+ it has no dependencies; on Python 3.3 and 3.4 it will install the [backport of the standard library's `typing` module][tbp].
+ On Python 3.5+ it has no dependencies; on Python 3.3 and 3.4 it will install the [backport of the standard library's `typing` module][tbp], and on Python 3.3 it will install the [backport of the standard library's `pathlib` module][pbp].
 
 
 [tci]: https://travis-ci.org/JaGallup/spaceland.svg?branch=master
@@ -16,3 +16,4 @@ The package supports Python 3.3+ and will run quite happily under PyPy3. While i
 [ccl]: https://codecov.io/gh/JaGallup/spaceland
 [shp]: http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf
 [tbp]: https://pypi.python.org/pypi/typing
+[pbp]: https://pypi.python.org/pypi/pathlib
