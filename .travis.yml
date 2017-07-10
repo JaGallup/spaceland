@@ -4,7 +4,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-  - "pypy-5.5.0"
+  - "pypy3.3-5.5-alpha"
 install:
   - pip install --upgrade pip "setuptools>=24.2.0"
   - pip install "py>=1.4.29"
