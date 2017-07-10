@@ -113,7 +113,7 @@ def dbf_to_csv() -> None:
     with args.filename.open('rb') as fh:
         dbf = DbaseFile(fh, encoding)
         if not args.no_header:
-            rows.writerow(field.name for field in dbf.fields)
+            rows.writerow([field.name for field in dbf.fields])
         rows.writerows(dbf)
 
 
