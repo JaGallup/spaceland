@@ -1,1 +1,13 @@
--e .[test,docs]
+typing==3.6.2; python_version < '3.5'
+
+# Testing
+tox==2.9.1
+pytest==3.3.0
+pytest-pep8==1.0.6
+pytest-cov==2.5.1
+pytest-console-scripts==0.1.3
+
+# Documentation
+Sphinx==1.6.5
+sphinx-rtd-theme==0.2.4
+sphinx-autodoc-typehints==1.2.3
