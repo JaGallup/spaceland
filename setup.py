@@ -10,9 +10,8 @@ setup(name="Spaceland",
       license="MIT",
       packages=find_packages("src"),
       package_dir={"": "src"},
-      python_requires='>=3.3',
-      install_requires=["typing;python_version<'3.5'",
-                        "pathlib;python_version<'3.4'"],
+      python_requires='>=3.4',
+      install_requires=["typing;python_version<'3.5'"],
       extras_require={
           "test": ["tox", "pytest>=3.0.0", "pytest-pep8", "pytest-cov",
                    "pytest-console-scripts"]
