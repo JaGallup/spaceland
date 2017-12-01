@@ -135,7 +135,6 @@ class DbaseFile:
 
     Class objects allow for iteration and slicing, and they also work
     as context managers.
-
     """
 
     def __init__(self, dbf: IO[bytes], encoding: str = "ascii") -> None:
