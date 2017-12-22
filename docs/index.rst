@@ -9,6 +9,7 @@ Spaceland is `developed on GitHub`_ and contributions are welcome.
 
 .. toctree::
    :caption: Core concepts
+   :maxdepth: 1
 
    shapefiles
    aims
